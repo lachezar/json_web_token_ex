@@ -43,7 +43,7 @@ defmodule JsonWebToken.Algorithm.Rsa do
   end
 
   @doc "RSA key modulus, n"
-  def modulus(key), do: :crypto.mpint(Enum.at key, 1)
+  def modulus(key), do: :crypto_backward_compat.mpint(Enum.at key, 1)
 
   defp validate_params(sha_bits, key) do
     Common.validate_bits(sha_bits)
